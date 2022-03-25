@@ -30,11 +30,9 @@ export const Info = (props) => {
   } = props;
 
   React.useEffect(() => {
-    if (!borders.length) {
-      axios
-        .get(filterByCode(borders))
-        .then(({ data }) => setNeighbors(data && data.map((neighbor) => neighbor.name)));
-    }
+    axios
+      .get(filterByCode(borders))
+      .then(({ data }) => setNeighbors(data && data.map((neighbor) => neighbor.name)));
   }, [borders]);
 
   const redirectToNeighborClick = (name) => {
